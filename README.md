@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 ## Important
-(!) In Front end you need to config database and location url/port.
+(!) In Backend APIyou need to config database and here in front end the location url/port.
 
 In the project directory, you can run:
 
