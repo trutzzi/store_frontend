@@ -3,6 +3,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 ## Important
 (!) In Backend API you need to config file located in (src/config.json) with database and location url/port for Back end API Rest from the project.
+https://github.com/trutzzi/store_backend
 
 In the project directory, you can run:
 
