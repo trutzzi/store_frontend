@@ -3,9 +3,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 ## Important
 (!) In Backend API section project from 'https://github.com/trutzzi/store_backend' you need to configure file located in (src/datebase.json) and the file located in root folder index.js with datebase info and expire token (if was changed).
-(!) in Front end project section (this project) you need to configure 'config.json' file with location url+port ex:(//localhost:3000) for Backend  API project  and the token expire time (if you want to change it).
+(!) in Front end project section (this project) you need to configure 'config.json' file with location url+port ex:(//localhost:3000) of the Backend  API project  and the token expire time (if you changed it).
 https://github.com/trutzzi/store_backend
-(!) If you done all of the aboe  run 'npm install' then 'npm start'
+(!) If you done all of the above  run 'npm install' then 'npm start'
 
 In the project directory, you can run:
 
