@@ -1,5 +1,5 @@
 {
-    'info': 'Here you can specify the API backend URL and tokenTime Expire'
-    'tokenTime': '300000',
-    'location': '//localhost:3000'
+    "info": "Here you can specify the API backend URL and tokenTime Expire",
+    "tokenTime": "300000",
+    "location": "//localhost:3000"
 }
