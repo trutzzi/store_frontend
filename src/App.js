@@ -84,6 +84,9 @@ class App extends React.Component {
     }
   }
   componentDidMount() {
+    //Check connexion
+    fetch(`${config.location}/shop`)
+      .catch(e => console.log(e))
     const { newToken } = this.props
     this.timer = setInterval(
       () => {
@@ -103,8 +106,7 @@ class App extends React.Component {
               newToken(data.accessToken)
             })
             .catch(e => {
-              console.log('Error fetch api');
-              console.log(e)
+              ToastsStore.error('Api can\'t be reach');
             })
         }
       },
