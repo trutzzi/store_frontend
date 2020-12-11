@@ -1,4 +1,4 @@
 {
     "location": "//localhost:3000",
-    "tokenTime": "9000"
+    "tokenTime": "3600000"
 }

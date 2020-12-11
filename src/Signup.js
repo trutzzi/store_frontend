@@ -56,6 +56,9 @@ class Login extends React.Component {
                     }
                 }
                 )
+                .catch(error => {
+                    ToastsStore.error('I can\'t reach the API')
+                })
         } else {
             ToastsStore.error('Insert an username, password (min 6 chars) and the email')
         }

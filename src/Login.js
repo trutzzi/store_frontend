@@ -90,6 +90,7 @@ class Login extends React.Component {
                     }
                 })
                 .catch(error => {
+                    ToastsStore.error('I can\'t reach the API')
                 })
         } else {
             ToastsStore.warning('Insert username and password...')

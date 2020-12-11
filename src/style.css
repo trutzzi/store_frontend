@@ -569,7 +569,7 @@ h2 {
   position: absolute;
   left: calc((100% - 100vw)/2);
   z-index: 1;
-  width: 100vw;
+  width: calc(100vw - 10px);
 }
 
 .banner .box {
@@ -1234,11 +1234,6 @@ textarea:focus {
 }
 
 /*----------  Overwrite carousel style  ----------*/
-
-.react-multi-carousel-item img {
-  width: 100%;
-  height: auto;
-}
 
 .react-multiple-carousel__arrow::before {
   color: #3677fd !important;
