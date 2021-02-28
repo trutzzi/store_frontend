@@ -8,6 +8,8 @@ import { useState } from 'react';
 import { ToastsStore } from 'react-toasts'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
+import { GrFormTrash, GrStatusWarning } from "react-icons/gr";
+
 const config = require('./config.json')
 
 function GetCategory(props) {
@@ -73,7 +75,9 @@ function GetCategory(props) {
             {
                 props.admin_role ?
                     <div className="item-detail_toggle-edit">
-                        <button className="btn" onClick={deleteFunction}>Delete category</button>
+                        <button className="btn" onClick={deleteFunction}>
+                            <GrFormTrash /> Category
+                        </button>
                     </div> : ''
             }
             < section className="category" >
@@ -81,7 +85,7 @@ function GetCategory(props) {
                 }
                 <h2>{categoryName}</h2>
                 <article>
-                    {renderItems.length <= 0 && <p className="info">This category is empty.</p>}
+                    {renderItems.length <= 0 && <p className="info"><GrStatusWarning /> This category is empty.</p>}
                     {renderItems}
                 </article>
             </section >

@@ -12,14 +12,18 @@ export function resetToken(token) {
         payload: token
     }
 }
-export function setUser(id, username, email, admin_role) {
+export function setUser(id, username, email, admin_role, state, country, address, phone) {
     return {
         type: 'SETUSER',
         payload: {
             id,
             username,
             email,
-            admin_role
+            admin_role,
+            state,
+            country,
+            address,
+            phone
         }
     }
 }

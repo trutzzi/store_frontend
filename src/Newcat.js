@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 import { ToastsStore } from 'react-toasts';
 import uuid from 'react-uuid'
 import { Redirect } from 'react-router-dom';
+import { GrAttachment } from "react-icons/gr";
+
 const config = require('./config.json')
 
 class NewCat extends React.Component {
@@ -90,7 +92,10 @@ class NewCat extends React.Component {
         <h2>New Category</h2>
         <article>
           <form className="fixed-width" onSubmit={this.formSubmit}>
-            <input type="file" multiple name="itemPhoto" id="itemPhoto" />
+            <label htmlFor="itemPhoto" className="filePicker">
+              <GrAttachment />
+              <input id="fileName" type="file" multiple name="itemPhoto" id="itemPhoto" />
+            </label>
             <input onInput={this.inputHandle} name="name" placeholder="Category name" type="text" />
             <br />
             <input onInput={this.inputHandle} name="description" placeholder="Category description" type="text" />

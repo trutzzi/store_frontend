@@ -8,6 +8,10 @@ let initStore = {
     id: null,
     email: null,
     admin_role: null,
+    country: null,
+    state: null,
+    address: null,
+    phone: null
 };
 if (localStorage.getItem('token')) {
     initStore.token = localStorage.getItem('token')
@@ -36,6 +40,10 @@ export function authReducer(state = initStore, action) {
             const { username, admin_role, email, id } = action.payload;
             state = { ...state };
             state.username = username;
+            state.country = action.payload.country
+            state.state = action.payload.state
+            state.address = action.payload.address
+            state.phone = action.payload.phone
             state.id = id;
             state.email = email;
             state.admin_role = admin_role;

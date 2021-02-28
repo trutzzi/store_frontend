@@ -5,6 +5,7 @@ Eroare de arhitectura, nu are ce cauta componenta asta, trebuia direct in produc
 import React from 'react';
 import ItemDetail from './Components/itemDetail'
 import { v4 as uuidv4 } from 'uuid';
+
 const config = require('./config.json')
 
 class Home extends React.Component {

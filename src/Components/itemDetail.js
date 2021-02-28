@@ -6,6 +6,9 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { Redirect } from 'react-router-dom'
 import { ToastsStore } from 'react-toasts';
+import { GrFormTrash, GrEdit } from "react-icons/gr";
+
+
 const config = require('../config.json')
 
 
@@ -164,7 +167,7 @@ class ItemDetail extends React.Component {
                 {editMode ?
                     <div className="edit-box-wrapper">
                         <div className="edit-box">
-                            <button className="btn--fluid" onClick={this.delete}>Delete Item</button>
+                            <button className="btn--fluid" onClick={this.delete}><GrFormTrash /> Item</button>
                             <form className="fixed-width" onSubmit={this.formSubmit}>
                                 {this.props.admin_role === 1 ? <input type="hidden" name="token" defaultValue={this.props.token} /> : ''}
                                 <input type="hidden" name="id" defaultValue={item_id} />
@@ -191,7 +194,7 @@ class ItemDetail extends React.Component {
                 }
                 <article className="item-detail" >
                     {this.state.redirect ? <Redirect to={this.state.redirect} /> : ''}
-                    {this.props.admin_role === 1 && <div className="item-detail_toggle-edit">  {editMode ? '' : <button onClick={this.toggleEdit}>Toggle edit </button>}
+                    {this.props.admin_role === 1 && <div className="item-detail_toggle-edit">  {editMode ? '' : <button onClick={this.toggleEdit}><GrEdit /> Edit </button>}
                     </div>}
                     < Carousel className="item-image" responsive={responsive} >
                         {

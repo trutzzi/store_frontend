@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 import { Redirect } from "react-router-dom";
 import { ToastsStore } from 'react-toasts';
 import uuid from 'react-uuid'
+import { GrAttachment } from "react-icons/gr";
+
 const config = require('./config.json')
 
 class NewItem extends React.Component {
@@ -102,7 +104,10 @@ class NewItem extends React.Component {
         <h2>New Product</h2>
         <article>
           <form className="fixed-width" onSubmit={this.formSubmit}>
-            <input type="file" multiple name="itemPhoto" id="itemPhoto" />
+            <label htmlFor="itemPhoto" className="filePicker">
+              <GrAttachment />
+              <input type="file" multiple name="itemPhoto" id="itemPhoto" />
+            </label>
             <input onInput={this.inputHandle} placeholder="Product name" name="name" multipleplaceholder="Product name" type="text" />
             <br />
             <input onInput={this.inputHandle} name="description" placeholder="Product description" type="text" />

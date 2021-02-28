@@ -6,6 +6,7 @@ import CategoryId from './Components/CategoryId'
 import { v4 as uuidv4 } from 'uuid';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom'
+import { GrStatusWarning } from "react-icons/gr";
 import { useState } from 'react';
 const config = require('./config.json')
 
@@ -37,12 +38,12 @@ function Home(props) {
     return (
         <section className="home">
             <h2>Latest Products</h2>
-            <article className="section-shop">
-                {renderItems.length ? renderItems : <p>No Items to show, you can <Link to="/new">create one</Link></p>}
+            <article className="section-shop grid">
+                {renderItems.length ? renderItems : <p> <GrStatusWarning /> No Items to show.</p>}
             </article>
             <h2>Shop by Category</h2>
-            <article className="section-shop">
-                {renderCats.length ? renderCats : <p>No Categories to show, please <Link to="/newCategory">create one</Link> first</p>}
+            <article className="section-shop grid">
+                {renderCats.length ? renderCats : <p><GrStatusWarning /> No Categories to show.</p>}
             </article>
         </section>
     )

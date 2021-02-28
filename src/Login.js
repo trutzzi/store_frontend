@@ -82,9 +82,9 @@ class Login extends React.Component {
                         )
                             .then(res => res.json())
                             .then(user => {
-                                const { id, username, email, admin_role } = user.data[0];
+                                const { id, username, email, admin_role, country, state, address, phone } = user.data[0];
                                 globUser = username
-                                setUser(id, username, email, admin_role);
+                                setUser(id, username, email, admin_role, country, state, address, phone);
                             })
                         ToastsStore.success('Autentification successfully')
                     }
@@ -106,7 +106,7 @@ class Login extends React.Component {
 const mapDispatchToProps = (dispatch) => {
     return {
         setToken: token => dispatch(setToken(token)),
-        setUser: (id, username, email, admin_role) => dispatch(setUser(id, username, email, admin_role))
+        setUser: (id, username, email, admin_role, country, state, address, phone) => dispatch(setUser(id, username, email, admin_role, country, state, address, phone))
     }
 }
 export default connect(null, mapDispatchToProps)(Login);

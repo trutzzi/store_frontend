@@ -3,7 +3,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect, Link } from "react-router-dom";
 import { connect } from 'react-redux';
-import { GrClose, GrMenu, GrCart } from "react-icons/gr";
+import { GrClose, GrRun, GrMenu, GrCart, GrLogin, GrLogout, GrAdd } from "react-icons/gr";
 import { ToastsContainer, ToastsStore } from 'react-toasts';
 import Navigation from './Components/Navigation.js'
 import Product from './Product';
@@ -54,31 +54,31 @@ class App extends React.Component {
           <React.Fragment>
             <div className="mini-menu_member">
               <div className="nav-member">
-                <a onClick={this.toggleAdminMenu} href="#">Admin</a>
+                <a onClick={this.toggleAdminMenu} href="#"><GrRun /> Admin</a>
                 <ul className={this.state.adm_visible ? '' : 'js--hidden'}>
                   <li>
-                    <Link onClick={this.toggleAdminMenu} to="/new">New Item</Link>
+                    <Link onClick={this.toggleAdminMenu} to="/new"><GrAdd /> Item</Link>
                   </li>
                   <li>
-                    <Link onClick={this.toggleAdminMenu} to="/newCategory">New Category</Link>
+                    <Link onClick={this.toggleAdminMenu} to="/newCategory"><GrAdd /> Category</Link>
                   </li>
                 </ul>
               </div>
             </div>
-            <Link to="/logout">Logout</Link>
+            <Link to="/logout"><GrLogout /> Logout</Link>
           </React.Fragment >
         )
       } else {
         return (
           <React.Fragment>
-            <Link to="/logout">Logout</Link>
+            <Link to="/logout"><GrLogout /> Logout</Link>
           </React.Fragment>
         )
       }
     } else {
       return (
         <React.Fragment>
-          <Link to="/login">Login</Link>
+          <Link to="/login"><GrLogin /> Login</Link>
         </React.Fragment>
       )
     }
@@ -127,9 +127,9 @@ class App extends React.Component {
           <header className="App-header">
             <div className="mini-menu">
               <div className="container">
-                <span className="mini-menu_user">{this.props.username ? this.props.username : 'Stranger'}</span>
+                <span className="mini-menu_user">{this.props.username ? this.props.username : 'Hi, Stranger'}</span>
                 {this.renderMenuAuthWithRole()}
-                <Link to="/checkout">Checkout</Link>
+                <Link to="/checkout"><GrCart /> Checkout</Link>
               </div>
             </div>
             <div className="header-top">
@@ -251,7 +251,7 @@ class App extends React.Component {
         <footer>
           <div className="container">
             <p className="copyright">
-              Copyright © {this.state.year}
+              Copyright © {this.state.year}, Coded by Truta Valentin
             </p>
           </div>
         </footer>

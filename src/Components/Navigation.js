@@ -16,9 +16,11 @@ export default class Navigation extends React.Component {
         fetch(`${config.location}/category`)
             .then(resp => resp.json())
             .then(data => {
-                data.data.map(c => myCats.push(< li key={uuid()}> <NavLink activeClassName='is-active' to={'/category/' + c.id}>{c.name}</NavLink></li >))
-                this.setState({ navCategory: myCats })
-                return myCats
+                if (data.length) {
+                    data.data.map(c => myCats.push(< li key={uuid()}> <NavLink activeClassName='is-active' to={'/category/' + c.id}>{c.name}</NavLink></li >))
+                    this.setState({ navCategory: myCats })
+                    return myCats
+                }
             })
             .catch(e => console.log(e))
     }

@@ -14,7 +14,12 @@ class Login extends React.Component {
             username: '',
             password: '',
             succes: false,
-            email: ''
+            email: '',
+            country: '',
+            state: '',
+            address: '',
+            phone: '',
+
         }
         this.InputHandle = this.InputHandle.bind(this)
         this.signUp = this.signUp.bind(this)
@@ -22,8 +27,8 @@ class Login extends React.Component {
     signUp(e) {
         let succes = false
         e.preventDefault()
-        let { username, password, email } = this.state
-        if (username.length > 0 && password.length >= 6 && email.length > 0) {
+        let { username, password, email, country, state, address, phone } = this.state
+        if (username.length > 0 && password.length >= 6 && email.length > 0 && country.length > 0 && state.length > 0 && address.length > 0 && phone.length > 0) {
             fetch(`${config.location}/signup`, {
                 method: 'POST',
                 headers: {
@@ -32,13 +37,17 @@ class Login extends React.Component {
                 body: JSON.stringify({
                     "username": username,
                     "email": email,
+                    "country": country,
+                    "state": state,
+                    "address": address,
+                    "phone": phone,
                     "password": password
                 })
             }
             ).then(res => {
                 console.log(res)
                 if (res.status === 411) {
-                    ToastsStore.error('Insert an username, password (min 6 chars) and the email')
+                    ToastsStore.warning('Please fill all the required fields.')
                 } else if (res.status === 200) {
                     this.setState({ succes: true })
                     succes = true
@@ -58,28 +67,35 @@ class Login extends React.Component {
                 )
                 .catch(error => {
                     ToastsStore.error('I can\'t reach the API')
+                    console.log(error)
                 })
         } else {
-            ToastsStore.error('Insert an username, password (min 6 chars) and the email')
+            ToastsStore.warning('Please fill all the required fields.')
         }
     }
     render() {
         return (
-            <section className="Login" >
-                {this.state.succes ? < Redirect to="/" /> : ''}
+            <React.Fragment>
                 <h2>Sign up</h2>
-                <article>
-                    <form onSubmit={this.signUp} className="fixed-width">
-                        <input name="username" placeholder="Your username" onInput={this.InputHandle} type="text" />
-                        <br />
-                        <input name="email" placeholder="Your email" onInput={this.InputHandle} type="text" />
-                        <br />
-                        <input name="password" placeholder="Your password" onInput={this.InputHandle} type="password" />
-                        <br />
-                        <button className="inverted">Sign up</button>
-                    </form>
-                </article>
-            </section>
+                <section className="Login" >
+                    {this.state.succes ? < Redirect to="/" /> : ''}
+                    <article>
+                        <form onSubmit={this.signUp} className="fixed-width">
+                            <h3>User information</h3>
+                            <input name="username" placeholder="Your username" onInput={this.InputHandle} type="text" />
+                            <input name="email" placeholder="Your email" onInput={this.InputHandle} type="text" />
+                            <input name="password" placeholder="Your password" onInput={this.InputHandle} type="password" />
+                            <h3>Address billing</h3>
+                            email, state, contry, address, phone
+                            <input type="text" onInput={this.InputHandle} name="country" placeholder="Country" />
+                            <input type="text" onInput={this.InputHandle} name="state" placeholder="State" />
+                            <input type="text" onInput={this.InputHandle} name="address" placeholder="Address" />
+                            <input type="text" onInput={this.InputHandle} name="phone" placeholder="Phone" />
+                            <button className="btn btn--inverted">Sign up</button>
+                        </form>
+                    </article>
+                </section>
+            </React.Fragment >
         )
     }
     InputHandle(e) {

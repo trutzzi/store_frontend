@@ -10,22 +10,19 @@
 
 body {
   font-family: 'Open Sans', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   color: #575656;
 }
 
 .info {
-  font-size: 12px;
   font-weight: 500;
   padding: 25px 15px;
-  background: #f5f5f5;
-  border-radius: 10px;
   margin: 10px 0;
-  border-bottom: 1px solid #dfdfdf;
+  box-shadow: 0 2px 3px #dfdfdf;
 }
 
 a {
-  color: #575656;
+  color: #2577fd;
   text-transform: uppercase;
   text-decoration: none;
 }
@@ -567,9 +564,9 @@ h2 {
   background-image: url(/images/category.webp);
   background-size: cover;
   position: absolute;
-  left: calc((100% - 100vw)/2);
+  left: calc(((100% - 20px) - 100vw)/2);
   z-index: 1;
-  width: calc(100vw - 10px);
+  width: 100vw;
 }
 
 .banner .box {
@@ -588,6 +585,12 @@ h2 {
   z-index: 2;
 }
 
+@media all and (max-width: 764px) {
+  .banner .container--small .box {
+    box-shadow: 0 2px 3px #dfdfdf;
+  }
+}
+
 .mini-menu {
   background-color: #000000;
   text-align: right;
@@ -599,11 +602,9 @@ h2 {
 }
 
 .mini-menu_user {
-  font-size: 14px;
   font-weight: 600;
-  margin: 0 20px;
   text-transform: capitalize;
-  padding: 15px 0;
+  padding: 10px;
   display: inline-block;
 }
 
@@ -614,7 +615,7 @@ h2 {
 }
 
 .mini-menu_detail {
-  font-size: 14px;
+  font-size: 16px;
   display: inline-block;
   margin-right: 10px;
 }
@@ -633,17 +634,27 @@ h2 {
   margin-right: 10px;
 }
 
-/*----------  Item Specific  ----------*/
-.section-shop {
-  text-align: center;
+.mini-menu a svg path {
+  stroke: #fff;
 }
 
+.mini-menu a svg {
+  fill: #fff;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+}
+
+.nav-member ul svg path {
+  stroke: #000;
+}
+
+/*----------  Item Specific  ----------*/
+
 .item {
-  padding: 15px;
-  border-radius: 10px;
-  margin-top: 15px;
-  width: calc(33% - 15px);
-  display: inline-block;
+  border-radius: 0 0 5px 5px;
+  padding: 0 0 15px 0 ;
+  box-shadow: 0 2px 5px 1px #dfdfdf;
   position: relative;
 }
 
@@ -681,7 +692,7 @@ h2 {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: rgb(0, 0, 0, 0.7);
+  background: rgb(0, 0, 0, 0.8);
   z-index: 2;
   top: 0;
   left: 0;
@@ -699,7 +710,7 @@ h2 {
 
 .item .price {
   font-weight: 600;
-  font-size: 18px;
+  font-size: 16px;
   display: inline-block;
   text-align: center;
 }
@@ -759,7 +770,7 @@ h2 {
 .item-detail_toggle-edit {
   position: fixed;
   right: 15px;
-  bottom: 15px;
+  bottom: 50px;
 }
 
 .item-detail .description {
@@ -785,10 +796,11 @@ h2 {
 .item-detail .control .btn {
   line-height: normal;
   height: auto;
-  padding: 16px;
+  padding: 9px;
   margin-bottom: 0;
   border-radius: 0;
   vertical-align: middle;
+  cursor: pointer;
   color: #828bb2;
   border-color: #828bb2;
 }
@@ -907,7 +919,7 @@ form {
 form label {
   vertical-align: middle;
   color: #000000;
-  font-size: 18px;
+  font-size: 16px;
   text-transform: uppercase;
   display: block;
   margin: 10px 15px 10px 0;
@@ -963,9 +975,22 @@ button {
   text-transform: uppercase;
   font-weight: 400;
   -webkit-transition: .5s;
+  cursor: pointer;
   -moz-transition: .5s;
   -o-transition: .5s;
   transition: .5s;
+}
+
+.btn svg path,
+button svg path {
+  stroke: #2577fd;
+}
+
+.btn svg,
+button svg {
+  width: 22px;
+  vertical-align: middle;
+  height: 22px;
 }
 
 .item-detail .btn,
@@ -991,13 +1016,61 @@ textarea {
   border: 1px solid #e5e6e9;
   border-radius: 0;
   height: 48px;
-  padding: 18px;
+  padding: 10px;
   margin-bottom: 25px;
   width: 100%;
-  font-size: 13px;
+  font-size: 16px;
   background: none;
   font-family: 'Open Sans';
   line-height: 26px;
+}
+
+input[type="file"] {
+  -ms-progress-appearance: none;
+  display: none
+}
+
+input:read-only {
+  color: rgb(0, 0, 0, 0.3);
+  font-style: italic;
+}
+
+.filePicker {
+  padding: 5px;
+  border: 1px solid #e5e6e9;
+  border-radius: 0;
+  height: 48px;
+  background: #2577fd;
+  margin-bottom: 25px;
+  width: 100%;
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Open Sans';
+  cursor: pointer;
+  text-align: center;
+
+  line-height: 26px;
+}
+
+.filePicker svg path {
+  stroke: #fff;
+}
+
+.filePicker svg {
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+}
+
+.filePicker:after {
+  content: "Pick a file";
+  color: #fff;
+  text-transform: capitalize;
+  display: inline-block;
+  font-size: 16px;
+  opacity: 0.7;
 }
 
 textarea {
@@ -1018,8 +1091,8 @@ textarea:focus {
 }
 
 .copyright {
-  font-size: 12px;
   font-weight: 500;
+  padding: 10px 0;
 }
 
 .box h2 {
@@ -1055,7 +1128,7 @@ textarea:focus {
   color: #fff;
   cursor: pointer;
   display: inline-block;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   letter-spacing: 1px;
   line-height: 0;
@@ -1110,7 +1183,7 @@ textarea:focus {
 
 .nav-member li a {
   padding: 6px 15px;
-  font-size: 14px;
+  font-size: 16px;
   color: #0b1c39;
   margin-right: 0;
   text-transform: capitalize;
@@ -1125,10 +1198,14 @@ textarea:focus {
 .fixed-width select {
   border: 1px solid #e5e6e9;
   border-radius: 0;
-  padding: 18px;
+  padding: 15px;
+  font-size: 16px;
   margin-bottom: 25px;
   width: 100%;
-  font-size: 13px;
+  color: rgba(0, 0, 0, .7);
+  font-family: 'Open Sans', sans-serif;
+  -ms-progress-appearance: none;
+  appearance: none;
   background: 0 0;
 }
 
@@ -1140,7 +1217,7 @@ textarea:focus {
 @media screen and (max-width: 920px) {
   .header-top .btn.cta {
     padding: 15px;
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 
@@ -1159,7 +1236,7 @@ textarea:focus {
   color: #fff;
   cursor: pointer;
   display: inline-block;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   letter-spacing: 1px;
   line-height: 0;
@@ -1225,7 +1302,7 @@ textarea:focus {
   }
 
   .banner .box .info1 {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .banner .box .info2 {
@@ -1248,9 +1325,8 @@ textarea:focus {
 
 .table-headline {
   padding-bottom: 10px;
-  text-transform: uppercase;
-  border-bottom: 1px solid rgba(0, 0, 0, .3);
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .has-children {
@@ -1298,7 +1374,7 @@ textarea:focus {
 }
 
 .has-children a {
-  font-size: 14px;
+  font-size: 16px;
   border-bottom: none;
   text-transform: capitalize;
 }
@@ -1352,14 +1428,14 @@ nav li {
 }
 
 nav li a {
-  font-size: 16px;
+  font-size: 14px;
   color: #575656;
   display: inline-block;
   text-transform: capitalize;
   padding: 39px 15px;
   display: block;
   border-bottom: 3px solid transparent;
-  font-size: 14px;
+  font-size: 16px;
   position: relative;
   border-bottom: 5px solid #ffffff;
 }
@@ -1370,7 +1446,6 @@ nav a .info {
   color: #fff;
   text-align: center;
   border-radius: 8px;
-  font-size: 10px;
   top: 5px;
   right: 0px;
   -webkit-transition: all .2s ease-out 0s;
@@ -1383,6 +1458,7 @@ nav a .info {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 500;
+  font-size: 16px;
 }
 
 @media screen and (max-width: 920px) {
@@ -1563,7 +1639,7 @@ a.is-active {
   border-radius: 50%;
   border: 1px solid #eeeeee;
   color: #4e4e4e;
-  font-size: 14px;
+  font-size: 16px;
   cursor: pointer;
   position: relative;
 }
@@ -1601,3 +1677,25 @@ a.is-active {
     margin-left: 0;
   }
 }
+
+/*=============================================
+=            FOOTER            =
+=============================================*/
+
+footer {
+  color: #fff;
+  font-size: 14px;
+  background: #2577fd;
+  text-align: center;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+footer a:hover {
+  text-decoration: none;
+}
+
+/*=====  End of FOOTER  ======*/
